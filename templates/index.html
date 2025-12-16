@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PubMed Paper Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>PubMed Literature Mining</h1>
+            <p>Search biomedical literature with entity extraction, NLP summarization, and knowledge graph mining.</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchQuery"
+                    class="search-input"
+                    placeholder="Search PubMed (e.g. celiac disease microbiome, BRCA1 cancer)"
+                    autocomplete="off"
+                >
+                <div class="search-controls">
+                    <label for="numPapers">Papers:</label>
+                    <select id="numPapers" class="form-control">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <button id="searchBtn" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Searching PubMed, extracting entities, and summarizing…</p>
+        </div>
+
+        <div id="error" class="alert alert-error hidden"></div>
+
+        <section id="resultsSection" class="results-section hidden">
+            <div class="results-header">
+                <h2>Results</h2>
+                <button id="exportBtn" class="btn btn-secondary">Export Data</button>
+            </div>
+            <div id="papersList" class="papers-list"></div>
+        </section>
+
+        <div id="emptyState" class="empty-state">
+            <h2>Start searching</h2>
+            <p>Enter a query to find and analyze PubMed papers.</p>
+        </div>
+    </div>
+
+    <!-- Modal for full paper details -->
+    <div id="paperModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="modalCloseBtn">&times;</button>
+
+            <h3 id="modalTitle" class="modal-title"></h3>
+
+            <p><strong>Authors:</strong> <span id="modalAuthors"></span></p>
+            <p><strong>Journal:</strong> <span id="modalJournal"></span></p>
+            <p><strong>Date:</strong> <span id="modalDate"></span></p>
+            <p><strong>PMID:</strong> <span id="modalPMID"></span></p>
+
+            <!-- NLP Summary Section -->
+            <h4>📊 AI Summary</h4>
+            <div id="modalSummary" class="summary-bullets"></div>
+
+            <!-- Methodology -->
+            <h4>🔬 Methodology</h4>
+            <p id="modalMethodology" class="metadata-text"></p>
+
+            <!-- Findings -->
+            <h4>🎯 Key Findings</h4>
+            <ul id="modalFindings" class="findings-list"></ul>
+
+            <!-- Implications -->
+            <h4>💡 Implications</h4>
+            <p id="modalImplications" class="metadata-text"></p>
+
+            <!-- Extracted Entities -->
+            <h4>🧬 Extracted Entities</h4>
+            <div id="modalEntities" class="entities-grid"></div>
+
+            <!-- Relationships -->
+            <h4>🔗 Extracted Relationships</h4>
+            <ul id="modalRelationships" class="relationships-list"></ul>
+
+            <!-- Abstract -->
+            <h4>📖 Full Abstract</h4>
+            <p id="modalAbstract" class="abstract-text"></p>
+
+            <div class="modal-actions">
+                <a id="modalPubmedLink" href="#" target="_blank" class="btn btn-primary">View on PubMed</a>
+                <button id="modalCopyBtn" class="btn btn-secondary">Copy Summary</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
