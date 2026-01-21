@@ -29,6 +29,28 @@ Accelerating Growth: The exponential increase from 28.9M to 36.6M papers (2018-2
 
 ![Workflow](charts/flow.drawio.svg)
 ---
+### How to Run:
+app.py (Flask - Rule-Based)
+
+- Simple extractive summarization (keyword scoring)
+- Pattern-based entity extraction (regex + dictionaries)
+- Rule-based relationships (regex patterns)
+- NLTK for basic NLP (tokenization, stopwords)
+```bash
+pip install flask biopython nltk python-dotenv
+python app.py
+```
+final_app.py (Gradio - Advanced NLP)
+
+- BART neural summarization (Facebook's transformer model)
+- Biomedical NER (sschet/biomedical-ner-all - trained on medical texts)
+- Semantic ranking (sentence-transformers for relevance scoring)
+- PyTorch + Transformers (state-of-the-art deep learning)
+  
+```bash
+pip install biopython transformers sentencepiece nltk sentence-transformers gradio torch
+python final_app.py
+```
 
 ## Complete Workflow
 
