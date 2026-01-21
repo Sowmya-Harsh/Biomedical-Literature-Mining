@@ -4,6 +4,30 @@
 
 This is an **Biomedical Literature Mining System** that automatically searches, analyzes, and extracts knowledge from scientific papers on PubMed. It combines multiple NLP techniques to provide intelligent summaries, entity extraction, and knowledge graph construction.
 
+![PubMed stats](charts/pubmed_stats.svg)
+
+#### Need for Biomedical Literature Mining Project:
+
+Overwhelming Volume: With 36.6 million cumulative citations and 1.57 million new papers added annually, manual literature review is practically impossible for researchers, necessitating automated mining tools.
+High Information Demand: 3.66 billion PubMed searches in 2023 demonstrate massive demand for finding relevant research, yet most users struggle to efficiently extract and synthesize information from this vast database.
+Accelerating Growth: The exponential increase from 28.9M to 36.6M papers (2018-2023) and 1.5 billion web sessions show that traditional search methods cannot keep pace—AI-powered literature mining is essential for timely knowledge discovery.
+
+---
+### **Key Technologies**
+
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| **PubMed API** | Biopython (Entrez) | Paper search & retrieval |
+| **Semantic Search** | SentenceTransformers | Embedding-based ranking |
+| **Summarization** | BART (Seq2Seq) | Neural abstractive summarization |
+| **NER** | Transformer (biomedical-ner-all) | Entity extraction |
+| **Sentence Tokenization** | NLTK | Text segmentation |
+| **Web UI** | Gradio | Interactive interface |
+
+---
+### **Project NLP Flow**
+
+![Workflow](charts/flow.drawio.svg)
 ---
 
 ## Complete Workflow
@@ -187,24 +211,6 @@ This is an **Biomedical Literature Mining System** that automatically searches, 
   - Metadata: relevance score, title focus, keywords
   - CSV download buttons
 
----
-
-## 🔧 Technical Architecture
-
-### **Key Technologies**
-
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **PubMed API** | Biopython (Entrez) | Paper search & retrieval |
-| **Semantic Search** | SentenceTransformers | Embedding-based ranking |
-| **Summarization** | BART (Seq2Seq) | Neural abstractive summarization |
-| **NER** | Transformer (biomedical-ner-all) | Entity extraction |
-| **Sentence Tokenization** | NLTK | Text segmentation |
-| **Web UI** | Gradio | Interactive interface |
-
-### **Processing Pipeline Flow**
-
-![Workflow](charts/flow.drawio.svg)
 ---
 
 ##  Scoring Mechanisms
