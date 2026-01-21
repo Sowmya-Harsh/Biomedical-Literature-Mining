@@ -204,30 +204,7 @@ This is an **Biomedical Literature Mining System** that automatically searches, 
 
 ### **Processing Pipeline Flow**
 
-```
-User Query
-    ↓
-[1. PubMed Search] → 20 paper IDs
-    ↓
-[2. Fetch Metadata] → Abstracts, titles, authors
-    ↓
-[3. Semantic Ranking] → Top 3 most relevant papers
-    ↓
-For each paper:
-    ↓
-[4. Abbreviation Resolution] → Expanded text
-    ↓
-[5. Neural Summarization (BART)] → Query-focused summary
-    ↓
-[6. Sentence Scoring] → Ranked key sentences
-    ↓
-[7. Entity Extraction (NER)] → Genes, diseases, chemicals
-    ↓
-[8. Knowledge Graph Update] → Add entities & relationships
-    ↓
-Display Results + Export CSV
-```
-
+![Workflow](charts/flow.drawio.svg)
 ---
 
 ##  Scoring Mechanisms
