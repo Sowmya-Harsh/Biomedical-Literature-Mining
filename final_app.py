@@ -1,7 +1,7 @@
 # ============================
 # INSTALLS (run once)
 # ============================
-!pip install biopython transformers sentencepiece nltk sentence-transformers gradio --quiet
+# !pip install biopython transformers sentencepiece nltk sentence-transformers gradio --quiet
 
 # ============================
 # IMPORTS
